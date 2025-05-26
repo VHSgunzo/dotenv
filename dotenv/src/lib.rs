@@ -83,6 +83,12 @@ pub fn from_path<P: AsRef<Path>>(path: P) -> Result<()> {
     iter.load()
 }
 
+pub fn from_string(string: &str) -> Result<()> {
+    let reader = string.as_bytes();
+    let iter = Iter::new(reader);
+    iter.load()
+}
+
 /// Like `from_path`, but returns an iterator over variables instead of loading into environment.
 ///
 /// Examples
